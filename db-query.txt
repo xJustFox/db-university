@@ -1,0 +1,7 @@
+1. Selezionare tutti gli studenti nati nel 1990 (160):
+
+	SELECT *
+	FROM `students`
+	WHERE `date_of_birth` LIKE '1990-%';
+	// WHERE YEAR(`date_of_birth`) = 1990;
+
