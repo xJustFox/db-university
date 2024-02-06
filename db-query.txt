@@ -47,3 +47,12 @@ laurea (286):
 	SELECT COUNT(*) 
 	FROM `teachers`
 	WHERE `phone` IS NULL;		
+
+BONUS:
+
+	SELECT `name`,`description`,`period`,`cfu`,`website` 
+	FROM `courses`
+	WHERE `website` IS NOT NULL 
+	AND `cfu` BETWEEN 9 AND 12
+	AND `year` = 1
+	ORDER BY `cfu` DESC;
