@@ -26,4 +26,4 @@
     FROM `students`
     JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id`
     JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`  
-    ORDER BY `students_surname` DESC
+    ORDER BY `students_surname` ASC
