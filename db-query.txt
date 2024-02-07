@@ -2,8 +2,8 @@
 
 	SELECT *
 	FROM `students`
-	WHERE `date_of_birth` LIKE '1990-%';
-	// WHERE YEAR(`date_of_birth`) = 1990;
+	WHERE YEAR(`date_of_birth`) = 1990;
+	// WHERE `date_of_birth` LIKE '1990-%';
 
 2. Selezionare tutti i corsi che valgono più di 10 crediti (479):
 
@@ -15,7 +15,7 @@
 
 	SELECT * 
 	FROM `students`
-	WHERE (2023 - YEAR(`date_of_birth`)) >= 30;
+	WHERE TIMESTAPMPDIFF(YEAR,`date_of_birth`,CURDATE()) > 30;
 
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286):
@@ -29,7 +29,7 @@ laurea (286):
 
 	SELECT * 
 	FROM `exams`
-	WHERE `hour` LIKE '14%' AND `date` = '2020-06-20';
+	WHERE HOUR(`hour`) >= 14 AND `date` = '2020-06-20';
 
 6. Selezionare tutti i corsi di laurea magistrale (38):
 
@@ -50,9 +50,9 @@ laurea (286):
 
 BONUS:
 
-	SELECT `name`,`description`,`period`,`cfu`,`website` 
+	SELECT `name`,`description`,`period`
 	FROM `courses`
 	WHERE `website` IS NOT NULL 
 	AND `cfu` BETWEEN 9 AND 12
 	AND `year` = 1
-	ORDER BY `cfu` DESC;
+	ORDER BY `period` DESC;
